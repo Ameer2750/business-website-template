@@ -23,3 +23,40 @@ function backToTop() {
 document.body.scrollTop = 0;
 document.documentElement.scrollTop = 0;
 }
+
+
+const container = document.getElementById("image-container");
+const leftButton = document.getElementById("scroll-left");
+const rightButton = document.getElementById("scroll-right");
+
+const containerWidth = container.offsetWidth;
+const contentWidth = container.scrollWidth;
+
+const maxScrollLeft = contentWidth - containerWidth;
+let currentScrollLeft = 0;
+
+leftButton.classList.add("disabled");
+
+leftButton.addEventListener("click", () => {
+  if (currentScrollLeft > 0) {
+    currentScrollLeft -= 100;
+    container.style.transform = `translateX(-${currentScrollLeft}px)`;
+    rightButton.classList.remove("disabled");
+  }
+
+  if (currentScrollLeft === 0) {
+    leftButton.classList.add("disabled");
+  }
+});
+
+rightButton.addEventListener("click", () => {
+  if (currentScrollLeft < maxScrollLeft) {
+    currentScrollLeft += 100;
+    container.style.transform = `translateX(-${currentScrollLeft}px)`;
+    leftButton.classList.remove("disabled");
+  }
+
+  if (currentScrollLeft === maxScrollLeft) {
+    rightButton.classList.add("disabled");
+  }
+})

@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: aliceblue;
 }
 #btn-back-to-top {
     position: fixed;
@@ -7,3 +8,65 @@ body {
     right: 20px;
     display: none;
     }
+
+.c-item {
+    height: 550px;
+}
+.c-image {
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.t-image {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+#image-scroll {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #image-container {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.3s ease;
+  }
+  
+  #image-container img {
+    width: 250px;
+    height: 150px;
+    margin: 0 9em;
+    object-fit: cover;
+  }
+  
+  #scroll-left,
+  #scroll-right {
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgb(212, 212, 212);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #scroll-left {
+    left: 20px;
+  }
+  
+  #scroll-right {
+    right: 20px;
+  }
+  
+  #scroll-left.disabled,
+  #scroll-right.disabled {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+  }
+  
